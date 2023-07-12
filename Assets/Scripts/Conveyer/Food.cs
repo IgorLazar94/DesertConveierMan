@@ -1,0 +1,56 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Food : MonoBehaviour
+{
+    public static Action onFoodClicked;
+
+    private bool isTargetFood = false;
+    private bool isTranslatePosition = false;
+
+    private void OnEnable()
+    {
+        onFoodClicked += CheckIsActualFood;
+    }
+
+    private void OnDisable()
+    {
+        onFoodClicked -= CheckIsActualFood;
+    }
+
+    private void OnMouseDown()
+    {
+        StartCoroutine(ActivateAsTarget());
+        onFoodClicked.Invoke();
+    }
+
+    private IEnumerator ActivateAsTarget()
+    {
+        isTargetFood = true;
+        yield return new WaitForSeconds(0.25f);
+        isTargetFood = false;
+    }
+
+    private void CheckIsActualFood()
+    {
+        if (isTargetFood)
+        {
+            isTranslatePosition = true;
+        }
+        else
+        {
+            isTranslatePosition = false;
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (isTranslatePosition)
+        {
+            RiggingTargetInjector.Instance.SetRightHandTargetPos(transform.position);
+        }
+    }
+
+}

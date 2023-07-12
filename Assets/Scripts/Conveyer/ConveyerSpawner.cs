@@ -70,13 +70,11 @@ public class ConveyerSpawner : MonoBehaviour
 
     private void InitNewFruit(GameObject conveyerPart)
     {
-        Debug.Log("Init new fruit");
         var fruitPrefab = FoodCollections.instance.ChooseRandomFruit();
         float fruitHeight = fruitPrefab.GetComponent<SphereCollider>().radius;
         Vector3 spawnPoint = new Vector3(conveyerPart.transform.position.x, 
                                          conveyerPart.transform.position.y + conveyerHeight + (fruitHeight * 2), 
                                          conveyerPart.transform.position.z);
-        Debug.Log(conveyerHeight + " conveyerHeight");
         var fruitObject = Instantiate(fruitPrefab, spawnPoint, Quaternion.identity);
         fruitObject.transform.parent = conveyerPart.transform;
         
