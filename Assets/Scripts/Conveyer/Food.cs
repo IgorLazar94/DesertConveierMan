@@ -13,7 +13,7 @@ public enum TypeOfFood
 }
 public class Food : MonoBehaviour
 {
-    [SerializeField] TypeOfFood typeOfFood;
+    [field: SerializeField] public TypeOfFood typeOfFood { get; private set; }
     public static Action onFoodClicked;
 
     private bool isTargetFood = false;

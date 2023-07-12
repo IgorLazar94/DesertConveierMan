@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16459e2f020d6a343beea1126b68687e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typeOfFood: 3
+  <typeOfFood>k__BackingField: 3
 --- !u!54 &869635509979245712
 Rigidbody:
   m_ObjectHideFlags: 0
