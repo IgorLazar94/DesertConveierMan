@@ -6,10 +6,13 @@ public class ConveyerSpawner : MonoBehaviour
 {
     [SerializeField] private GameObject conveyerPrefab;
     [SerializeField] private Transform spawnPoint;
-    private float partsSpeed = 5f;
+    [SerializeField] private Transform containerPool;
+    private float partsSpeed = 2f;
+    private float conveyerWidth;
 
     private void Start()
     {
+        GetConveyerWidth();
         StartCoroutine(SpawnConveyerPart());
     }
 
@@ -18,11 +21,16 @@ public class ConveyerSpawner : MonoBehaviour
         while (true)
         {
             var conveyer = Instantiate(conveyerPrefab, spawnPoint.position, conveyerPrefab.transform.rotation);
+            conveyer.transform.parent = containerPool;
             var x = conveyer.gameObject.GetComponent<ConveyerPartController>();
             x.SetSpeed(partsSpeed);
-            yield return new WaitForSeconds(1.0f);
-            Debug.Log("Spawn");
+            yield return new WaitForSeconds((conveyerWidth * partsSpeed) / 2);
         }
 
+    }
+
+    private void GetConveyerWidth()
+    {
+        conveyerWidth = conveyerPrefab.GetComponent<BoxCollider>().size.x;
     }
 }
