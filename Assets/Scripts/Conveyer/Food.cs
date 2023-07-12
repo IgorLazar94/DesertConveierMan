@@ -3,8 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum TypeOfFood
+{
+    Apple,
+    Banana,
+    Coconut,
+    Pear,
+    PineApple
+}
 public class Food : MonoBehaviour
 {
+    [SerializeField] TypeOfFood typeOfFood;
     public static Action onFoodClicked;
 
     private bool isTargetFood = false;

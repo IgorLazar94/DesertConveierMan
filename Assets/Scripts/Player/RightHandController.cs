@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -5,8 +6,23 @@ using UnityEngine;
 
 public class RightHandController : MonoBehaviour
 {
-    public static Action fruitOnHand;
+    public static Action foodOnHandEvent;
+    public static Action foodOffHandEvent;
+
+    [SerializeField] private PlayerInventory inventory;
     private bool isBusyHand = false;
+    private Food foodInHand;
+
+    private void OnEnable()
+    {
+        foodOffHandEvent += ClearHands;
+    }
+
+    private void OnDisable()
+    {
+        foodOffHandEvent -= ClearHands;
+    }
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -22,11 +38,21 @@ public class RightHandController : MonoBehaviour
         food.DiactivateTranslatePosition();
         food.gameObject.transform.localPosition = transform.localPosition - (Vector3.one * 0.01f);
         food.gameObject.transform.SetParent(transform, false);
-        fruitOnHand.Invoke();
+        foodInHand = food;
+
+        foodOnHandEvent.Invoke();
     }
 
     public bool CheckISBusyHand()
     {
         return isBusyHand;
+    }
+
+    private void ClearHands()
+    {
+        inventory.SetNewFood(foodInHand);
+        //foodInHand.gameObject.transform.DOMove(Vector3.down, 0.25f).OnComplete(() => Destroy(foodInHand.gameObject));
+        Destroy(foodInHand.gameObject);
+        isBusyHand = false;
     }
 }
