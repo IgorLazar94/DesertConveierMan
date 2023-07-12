@@ -9,7 +9,7 @@ public enum TypeOfFood
     Banana,
     Coconut,
     Pear,
-    PineApple
+    Pineapple
 }
 public class Food : MonoBehaviour
 {
