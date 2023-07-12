@@ -73,6 +73,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 470773829416299828}
+  - component: {fileID: 919132149290779996}
   m_Layer: 0
   m_Name: Stickman_heads_sphere
   m_TagString: Untagged
@@ -97,6 +98,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &919132149290779996
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991731868080076686}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 8476b33546df7a046822b89b151872ef, type: 3}
+  m_Controller: {fileID: 9100000, guid: 84a0d45eb40da7f4996846a7166e6811, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1440768496592584742
 GameObject:
   m_ObjectHideFlags: 0
