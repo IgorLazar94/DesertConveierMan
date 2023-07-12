@@ -5,6 +5,7 @@ using UnityEngine;
 public class RiggingTargetInjector : MonoBehaviour
 {
     public static RiggingTargetInjector Instance { get; private set; }
+    [SerializeField] private RightHandController rightHand;
 
     private void Awake()
     {
@@ -30,16 +31,19 @@ public class RiggingTargetInjector : MonoBehaviour
 
     public void SetRightHandTargetPos(Vector3 foodPos)
     {
-        rightHandTarget.position = foodPos;
+        if (!rightHand.CheckISBusyHand())
+        {
+            rightHandTarget.position = foodPos;
+        }
     }
 
-    public Transform GetLeftHandTargetPos()
+    public void SetLeftHandTargetPos(Vector3 newPos)
     {
-        return leftHandTarget;
+         leftHandTarget.position = newPos;
     }
 
-    public Transform GetHeadTargetPos()
-    {
-        return headTarget;
-    }
+    //public Transform GetHeadTargetPos()
+    //{
+    //    return headTarget;
+    //}
 }

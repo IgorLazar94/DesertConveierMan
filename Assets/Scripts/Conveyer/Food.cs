@@ -8,8 +8,12 @@ public class Food : MonoBehaviour
     public static Action onFoodClicked;
 
     private bool isTargetFood = false;
-    private bool isTranslatePosition = false;
+    public bool isTranslatePosition { get; private set; }
 
+    private void Start()
+    {
+        isTranslatePosition = false;
+    }
     private void OnEnable()
     {
         onFoodClicked += CheckIsActualFood;
@@ -50,6 +54,14 @@ public class Food : MonoBehaviour
         if (isTranslatePosition)
         {
             RiggingTargetInjector.Instance.SetRightHandTargetPos(transform.position);
+        }
+    }
+
+    public void DiactivateTranslatePosition()
+    {
+        if (isTranslatePosition)
+        {
+            isTranslatePosition = false;
         }
     }
 
