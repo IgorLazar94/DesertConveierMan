@@ -105,8 +105,12 @@ public class Food : MonoBehaviour
 
     public IEnumerator DetonateTheBomb()
     {
+        yield return new WaitForSeconds(0.3f);
+        var boomFx = GetComponentInChildren<ParticleSystem>();
+        boomFx.Play();
+        AnimationRiggingController.OnPlayerExploded.Invoke();
         yield return new WaitForSeconds(0.2f);
-        Debug.Log("Boom");
+        GameManager.OnActivateLoseCondition.Invoke();
     }
 
 }

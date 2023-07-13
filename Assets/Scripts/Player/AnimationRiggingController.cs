@@ -17,6 +17,7 @@ public class AnimationRiggingController : MonoBehaviour
     private Vector3 headDefaultPos;
     //private Vector3 rightHandPassPos;
     //private Vector3 leftHandPassPos;
+    public static System.Action OnPlayerExploded;
 
     private void Start()
     {
@@ -31,12 +32,14 @@ public class AnimationRiggingController : MonoBehaviour
     {
         RightHandController.foodOnHandEvent += MoveHands;
         GameManager.OnActivateWinCondition += EnableRandomDance;
+        OnPlayerExploded += EnableRagdoll;
     }
 
     private void OnDisable()
     {
         RightHandController.foodOnHandEvent -= MoveHands;
         GameManager.OnActivateWinCondition -= EnableRandomDance;
+        OnPlayerExploded -= EnableRagdoll;
     }
 
     private void DiactivateRiggindAnimation()
