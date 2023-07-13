@@ -19,7 +19,6 @@ public class Food : MonoBehaviour
     [field: SerializeField] public TypeOfFood typeOfFood { get; private set; }
     public bool isTranslatePosition { get; private set; }
     public static Action onFoodClicked;
-
     [SerializeField] private GameObject arrowSprite;
     private Tween spriteTween;
     private bool isTargetFood = false;
@@ -30,6 +29,7 @@ public class Food : MonoBehaviour
         arrowSprite.gameObject.SetActive(false);
         isTranslatePosition = false;
     }
+
     private void OnEnable()
     {
         onFoodClicked += CheckIsActualFood;
@@ -112,5 +112,4 @@ public class Food : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         GameManager.OnActivateLoseCondition.Invoke();
     }
-
 }

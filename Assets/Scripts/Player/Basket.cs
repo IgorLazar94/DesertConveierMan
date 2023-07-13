@@ -6,11 +6,10 @@ using UnityEngine;
 public class Basket : MonoBehaviour
 {
     [SerializeField] GameObject basketContent;
-    private ParticleSystem puffFx;
     public static Action OnBuskedFilledUp;
+    private ParticleSystem puffFx;
     private int counter = 0;
     private float offsetFoodY = 0.5f;
-
 
     private void Start()
     {
@@ -38,7 +37,8 @@ public class Basket : MonoBehaviour
         if (counter == 0)
         {
             basketContent.SetActive(true);
-        } else
+        }
+        else
         {
             basketContent.transform.localPosition += new Vector3(0f, offsetFoodY, 0f);
         }

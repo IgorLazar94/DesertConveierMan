@@ -9,15 +9,12 @@ public class AnimationRiggingController : MonoBehaviour
     [SerializeField] Transform rightHandTarget;
     [SerializeField] Transform leftHandTarget;
     [SerializeField] Transform headTarget;
-
+    public static System.Action OnPlayerExploded;
     private Animator animator;
     private RigBuilder rigBuilder;
     private Vector3 rightTargetDefaultPos;
     private Vector3 leftTargetDefaultPos;
     private Vector3 headDefaultPos;
-    //private Vector3 rightHandPassPos;
-    //private Vector3 leftHandPassPos;
-    public static System.Action OnPlayerExploded;
 
     private void Start()
     {
@@ -52,7 +49,6 @@ public class AnimationRiggingController : MonoBehaviour
         rightHandTarget.DOMove(new Vector3(-0.4f, 1, 0), 1f).OnComplete(() => PutFoodInBasket());
         headTarget.DOMove(new Vector3(-0.4f, 1, 0), 1f);
         leftHandTarget.DOMove(leftHandTarget.position + new Vector3(0f, 0.2f, 0f), 1f);
-
     }
 
     private void PutFoodInBasket()
@@ -80,7 +76,5 @@ public class AnimationRiggingController : MonoBehaviour
     {
         DiactivateRiggindAnimation();
         animator.enabled = false;
-
     }
-
 }

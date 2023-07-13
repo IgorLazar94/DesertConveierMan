@@ -8,12 +8,11 @@ public class RightHandController : MonoBehaviour
 {
     public static Action foodOnHandEvent;
     public static Action foodOffHandEvent;
-
+    public static Action OnBombExploded;
     [SerializeField] private PlayerInventory inventory;
     private bool isBusyHand = false;
     private Food foodInHand;
 
-    public static Action OnBombExploded;
     private void OnEnable()
     {
         foodOffHandEvent += ClearHands;
@@ -23,7 +22,6 @@ public class RightHandController : MonoBehaviour
     {
         foodOffHandEvent -= ClearHands;
     }
-
 
     private void OnTriggerEnter(Collider other)
     {
@@ -40,13 +38,11 @@ public class RightHandController : MonoBehaviour
         {
             ActivateBomb(food);
         }
-
         food.DiactivateTranslatePosition();
         food.gameObject.transform.localPosition = transform.localPosition - (Vector3.one * 0.01f);
         food.gameObject.transform.SetParent(transform, false);
         food.PlacedInTheHand();
         foodInHand = food;
-
         foodOnHandEvent.Invoke();
     }
 

@@ -25,8 +25,6 @@ public class PlayerUIPanelControl : MonoBehaviour
     {
         ChoosePanelParameters();
         taskText.text = countOfFoodTask.ToString();
-
-        //SetTaskText(countOfFoodTask);
     }
 
     private void Start()
@@ -50,5 +48,4 @@ public class PlayerUIPanelControl : MonoBehaviour
     {
         transform.DOScale(Vector3.zero, 0.25f);
     }
-
 }

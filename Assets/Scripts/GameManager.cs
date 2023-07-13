@@ -8,11 +8,10 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-    private TypeOfFood levelTask;
-    private int countOfFoodTask;
-
     public static Action OnActivateWinCondition;
     public static Action OnActivateLoseCondition;
+    private TypeOfFood levelTask;
+    private int countOfFoodTask;
 
     private void Awake()
     {
@@ -25,10 +24,8 @@ public class GameManager : MonoBehaviour
     {
         Array values = Enum.GetValues(typeof(TypeOfFood));
         UnityEngine.Random.InitState(System.DateTime.Now.Millisecond);
-
         int lastIndex = values.Length - 1;
         TypeOfFood randomFood;
-
         do
         {
             randomFood = (TypeOfFood)values.GetValue(UnityEngine.Random.Range(0, values.Length));
@@ -43,7 +40,7 @@ public class GameManager : MonoBehaviour
 
     private void AddStaticLinkToGM()
     {
-            Instance = this;
+        Instance = this;
     }
 
     public TypeOfFood GetLevelTask()
@@ -61,5 +58,4 @@ public class GameManager : MonoBehaviour
         var thisScene = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(thisScene);
     }
-
 }

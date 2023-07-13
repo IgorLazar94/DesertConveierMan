@@ -31,5 +31,4 @@ public class ConveyerPartController : MonoBehaviour
     {
         conveyerSpawner = spawner;
     }
-
 }

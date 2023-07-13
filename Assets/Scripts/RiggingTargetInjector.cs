@@ -6,19 +6,18 @@ public class RiggingTargetInjector : MonoBehaviour
 {
     public static RiggingTargetInjector Instance { get; private set; }
     [SerializeField] private RightHandController rightHand;
+    [SerializeField] private Transform headTarget;
+    [SerializeField] private Transform rightHandTarget;
+    [SerializeField] private Transform leftHandTarget;
 
     private void Awake()
     {
         AddInjectorStaticLink();
     }
 
-    [SerializeField] private Transform headTarget;
-    [SerializeField] private Transform rightHandTarget;
-    [SerializeField] private Transform leftHandTarget;
-
     private void AddInjectorStaticLink()
     {
-            Instance = this;
+        Instance = this;
     }
 
     public void SetRightHandTargetPos(Vector3 foodPos)
@@ -32,11 +31,6 @@ public class RiggingTargetInjector : MonoBehaviour
 
     public void SetLeftHandTargetPos(Vector3 newPos)
     {
-         leftHandTarget.position = newPos;
+        leftHandTarget.position = newPos;
     }
-
-    //public Transform GetHeadTargetPos()
-    //{
-    //    return headTarget;
-    //}
 }

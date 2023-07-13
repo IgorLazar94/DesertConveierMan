@@ -6,13 +6,11 @@ using UnityEngine.UI;
 public class SpriteCollections : MonoBehaviour
 {
     public static SpriteCollections Instance { get; private set; }
- 
     [SerializeField] private Sprite appleSprite;
     [SerializeField] private Sprite bananaSprite;
     [SerializeField] private Sprite coconutSprite;
     [SerializeField] private Sprite pearSprite;
     [SerializeField] private Sprite pineappleSprite;
-
     private TypeOfFood levelTask;
     private Sprite taskSprite;
 
@@ -55,6 +53,6 @@ public class SpriteCollections : MonoBehaviour
 
     private void AddStaticLinkToSpriteCollection()
     {
-            Instance = this;
+        Instance = this;
     }
 }

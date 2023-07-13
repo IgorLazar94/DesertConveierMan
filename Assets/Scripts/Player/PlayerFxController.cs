@@ -30,5 +30,4 @@ public class PlayerFxController : MonoBehaviour
             fX.Play();
         }
     }
-
 }

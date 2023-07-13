@@ -8,13 +8,10 @@ public class CountDownTimer : MonoBehaviour
 {
     public TextMeshProUGUI timerText;
     public Image timerIcon;
+    public static Action onUpdateSpeedByTime;
 
     private int totalSeconds = 120;
     private int remainingSeconds;
-
-
-    public static Action onUpdateSpeedByTime;
-
     private void Start()
     {
         remainingSeconds = totalSeconds;

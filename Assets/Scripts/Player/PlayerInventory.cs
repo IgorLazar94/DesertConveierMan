@@ -10,7 +10,6 @@ public class PlayerInventory : MonoBehaviour
     private TypeOfFood levelTask;
     private int lastFoodToVictory;
 
-
     private void Start()
     {
         levelTask = GameManager.Instance.GetLevelTask();

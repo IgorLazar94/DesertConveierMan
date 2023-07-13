@@ -13,6 +13,7 @@ public class CameraController : MonoBehaviour
         cameraShake = GetComponent<CameraShake>();
         winPosition = new Vector3(0, 1.5f, 3f);
     }
+
     private void OnEnable()
     {
         GameManager.OnActivateWinCondition += OffsetCamera;

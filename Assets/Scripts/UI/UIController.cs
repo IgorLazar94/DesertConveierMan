@@ -10,13 +10,13 @@ public class UIController : MonoBehaviour, IPointerDownHandler
     [SerializeField] private GameObject gameplayPanel;
     [SerializeField] private GameObject winPanel;
     [SerializeField] private GameObject losePanel;
-
     private bool isRegisteredFirstTouch = false;
 
     private void Awake()
     {
         Time.timeScale = 0;
     }
+
     private void OnEnable()
     {
         GameManager.OnActivateWinCondition += StartActivateWinPanel;
@@ -40,6 +40,7 @@ public class UIController : MonoBehaviour, IPointerDownHandler
     {
         StartCoroutine(ActivateWinPanel());
     }
+
     private void ActivateLosePanel()
     {
         gameplayPanel.SetActive(false);

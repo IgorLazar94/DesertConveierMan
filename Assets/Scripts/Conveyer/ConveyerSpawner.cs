@@ -9,11 +9,11 @@ public class ConveyerSpawner : MonoBehaviour
     [SerializeField] private GameObject conveyerPrefabWithFood;
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private Transform containerPool;
+    private List<ConveyerPartController> conveyersList = new List<ConveyerPartController>();
     private float partsSpeed = 2f;
     private float factorSpeed = 0.2f;
     private float conveyerWidth;
     private float conveyerHeight;
-    private List<ConveyerPartController> conveyersList = new List<ConveyerPartController>();
 
     private void OnEnable()
     {
@@ -44,7 +44,6 @@ public class ConveyerSpawner : MonoBehaviour
             yield return new WaitForSeconds((conveyerWidth * 2) / partsSpeed);
             counter++;
         }
-
     }
 
     private void UpdateConveyerSpeed()

@@ -17,7 +17,6 @@ public class CameraShake : MonoBehaviour
     public void ShakeCamera()
     {
         currentShakeDuration = shakeDuration;
-
         if (Application.platform == RuntimePlatform.Android)
         {
             Handheld.Vibrate();
@@ -29,7 +28,6 @@ public class CameraShake : MonoBehaviour
         if (currentShakeDuration > 0)
         {
             transform.localPosition = transform.localPosition + Random.insideUnitSphere * shakeAmount;
-
             currentShakeDuration -= Time.deltaTime * decreaseFactor;
         }
         else

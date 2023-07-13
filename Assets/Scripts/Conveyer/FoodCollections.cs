@@ -5,7 +5,6 @@ using UnityEngine;
 public class FoodCollections : MonoBehaviour
 {
     public static FoodCollections instance;
-
     [SerializeField] private List<GameObject> listOfFood = new List<GameObject>();
 
     private void Awake()
