@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     private TypeOfFood levelTask;
     private int countOfFoodTask;
 
+    public static Action OnActivateWinCondition;
+
     private void Awake()
     {
         MakeSingleton();
@@ -49,5 +51,13 @@ public class GameManager : MonoBehaviour
     public int GetCountOfFood()
     {
         return countOfFoodTask;
+    }
+
+    private void Update() // Debug
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            OnActivateWinCondition.Invoke();
+        }
     }
 }

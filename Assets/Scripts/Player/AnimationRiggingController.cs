@@ -2,22 +2,26 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
 
-public class RiggingController : MonoBehaviour
+public class AnimationRiggingController : MonoBehaviour
 {
     [SerializeField] Transform rightHandTarget;
     [SerializeField] Transform leftHandTarget;
     [SerializeField] Transform headTarget;
 
+    private Animator animator;
+    private RigBuilder rigBuilder;
     private Vector3 rightTargetDefaultPos;
     private Vector3 leftTargetDefaultPos;
     private Vector3 headDefaultPos;
-
     private Vector3 rightHandPassPos;
     private Vector3 leftHandPassPos;
 
     private void Start()
     {
+        animator = GetComponent<Animator>();
+        rigBuilder = GetComponent<RigBuilder>();
         rightTargetDefaultPos = rightHandTarget.position;
         leftTargetDefaultPos = leftHandTarget.position;
         headDefaultPos = headTarget.position;
@@ -26,16 +30,18 @@ public class RiggingController : MonoBehaviour
     private void OnEnable()
     {
         RightHandController.foodOnHandEvent += MoveHands;
+        GameManager.OnActivateWinCondition += EnableRandomDance;
     }
 
     private void OnDisable()
     {
         RightHandController.foodOnHandEvent -= MoveHands;
+        GameManager.OnActivateWinCondition -= EnableRandomDance;
     }
 
-    private void ActivateRiggindAnimation(bool value)
+    private void DiactivateRiggindAnimation()
     {
-
+        rigBuilder.enabled = false;
     }
 
     private void MoveHands()
@@ -51,4 +57,13 @@ public class RiggingController : MonoBehaviour
         leftHandTarget.DOMove(leftTargetDefaultPos, 0.75f);
         RightHandController.foodOffHandEvent.Invoke();
     }
+
+    private void EnableRandomDance()
+    {
+        int typeOfDance = Random.Range(0, 3);
+        DiactivateRiggindAnimation();
+        animator.SetInteger("typeOfDance", typeOfDance);
+        animator.SetTrigger("isDance");
+    }
+
 }

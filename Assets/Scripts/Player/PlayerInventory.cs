@@ -23,7 +23,16 @@ public class PlayerInventory : MonoBehaviour
         {
             lastFoodToVictory--;
             playerUIPanel.SetTaskText(lastFoodToVictory);
+            CheckWinCondition();
         }
     }
 
+    private void CheckWinCondition()
+    {
+        if (lastFoodToVictory <= 0)
+        {
+            //GameManager.OnActivateWinCondition.Invoke();
+            Debug.Log("Win");
+        }
+    }
 }

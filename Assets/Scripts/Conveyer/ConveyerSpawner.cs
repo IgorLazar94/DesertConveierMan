@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,16 @@ public class ConveyerSpawner : MonoBehaviour
     private float conveyerWidth;
     private float conveyerHeight;
     private List<ConveyerPartController> conveyersList = new List<ConveyerPartController>();
+
+    private void OnEnable()
+    {
+        GameManager.OnActivateWinCondition += DisableConveyer;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.OnActivateWinCondition -= DisableConveyer;
+    }
 
     private void Start()
     {
@@ -77,6 +88,11 @@ public class ConveyerSpawner : MonoBehaviour
                                          conveyerPart.transform.position.z);
         var fruitObject = Instantiate(fruitPrefab, spawnPoint, Quaternion.identity);
         fruitObject.transform.parent = conveyerPart.transform;
-        
+    }
+
+
+    private void DisableConveyer()
+    {
+        transform.DOScale(Vector3.zero, 0.5f);
     }
 }
