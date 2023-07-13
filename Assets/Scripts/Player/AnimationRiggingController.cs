@@ -73,4 +73,11 @@ public class AnimationRiggingController : MonoBehaviour
         animator.SetTrigger(AnimParameters.isDance);
     }
 
+    private void EnableRagdoll()
+    {
+        DiactivateRiggindAnimation();
+        animator.enabled = false;
+
+    }
+
 }
