@@ -69,13 +69,14 @@ public class ConveyerSpawner : MonoBehaviour
     {
         var conveyerObject = Instantiate(_conveyerPrefab, spawnPoint.position, conveyerPrefab.transform.rotation);
         conveyerObject.transform.parent = containerPool;
-        var conveyerScript = conveyerObject.gameObject.GetComponent<ConveyerPartController>();
-        conveyersList.Add(conveyerScript);
-        if (conveyerScript.typeOfConveyerPart == TypeOfConveyerPart.WithFood)
+        var conveyerPart = conveyerObject.gameObject.GetComponent<ConveyerPartController>();
+        conveyerPart.SetParentLink(this);
+        conveyersList.Add(conveyerPart);
+        if (conveyerPart.typeOfConveyerPart == TypeOfConveyerPart.WithFood)
         {
-            InitNewFruit(conveyerScript.gameObject);
+            InitNewFruit(conveyerPart.gameObject);
         }
-        conveyerScript.SetSpeed(partsSpeed);
+        conveyerPart.SetSpeed(partsSpeed);
     }
 
     private GameObject ChooseTypeOfConveyerPart(int _counter)
@@ -101,9 +102,14 @@ public class ConveyerSpawner : MonoBehaviour
         fruitObject.transform.parent = conveyerPart.transform;
     }
 
-
     private void DisableConveyer()
     {
         transform.DOScale(Vector3.zero, 0.5f);
+    }
+
+    public void RemoveConveyerPart(ConveyerPartController conveyerPart)
+    {
+        conveyersList.Remove(conveyerPart);
+        Destroy(conveyerPart.gameObject);
     }
 }

@@ -15,12 +15,13 @@ public enum TypeOfFood
 public class Food : MonoBehaviour
 {
     [field: SerializeField] public TypeOfFood typeOfFood { get; private set; }
+    public bool isTranslatePosition { get; private set; }
     public static Action onFoodClicked;
 
     [SerializeField] private GameObject arrowSprite;
     private Tween spriteTween;
     private bool isTargetFood = false;
-    public bool isTranslatePosition { get; private set; }
+    private bool isInHand = false;
 
     private void Start()
     {
@@ -40,7 +41,7 @@ public class Food : MonoBehaviour
     private void ActivateSprite()
     {
         arrowSprite.gameObject.SetActive(true);
-        arrowSprite.transform.DOMoveY(1.5f,0.25f).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.Linear);
+        arrowSprite.transform.DOMoveY(1.5f, 0.25f).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.Linear);
     }
 
     private void DiactivateSprite()
@@ -50,8 +51,11 @@ public class Food : MonoBehaviour
 
     private void OnMouseDown()
     {
-        StartCoroutine(ActivateAsTarget());
-        onFoodClicked.Invoke();
+        if (!isInHand)
+        {
+            StartCoroutine(ActivateAsTarget());
+            onFoodClicked.Invoke();
+        }
     }
 
     private IEnumerator ActivateAsTarget()
@@ -90,6 +94,11 @@ public class Food : MonoBehaviour
             isTranslatePosition = false;
             DiactivateSprite();
         }
+    }
+
+    public void PlacedInTheHand()
+    {
+        isInHand = true;
     }
 
 }

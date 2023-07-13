@@ -38,6 +38,7 @@ public class RightHandController : MonoBehaviour
         food.DiactivateTranslatePosition();
         food.gameObject.transform.localPosition = transform.localPosition - (Vector3.one * 0.01f);
         food.gameObject.transform.SetParent(transform, false);
+        food.PlacedInTheHand();
         foodInHand = food;
 
         foodOnHandEvent.Invoke();
