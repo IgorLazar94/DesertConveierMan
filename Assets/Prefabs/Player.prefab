@@ -2355,10 +2355,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 113672719}
     m_Modifications:
-    - target: {fileID: 2762310740557997106, guid: 8f746a9f86eb194469f55348470b1068, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5162423145976201676, guid: 8f746a9f86eb194469f55348470b1068, type: 3}
       propertyPath: m_Name
       value: Basket
@@ -2366,18 +2362,6 @@ PrefabInstance:
     - target: {fileID: 5543734137562258294, guid: 8f746a9f86eb194469f55348470b1068, type: 3}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5543734137562258294, guid: 8f746a9f86eb194469f55348470b1068, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5543734137562258294, guid: 8f746a9f86eb194469f55348470b1068, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5543734137562258294, guid: 8f746a9f86eb194469f55348470b1068, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5543734137562258294, guid: 8f746a9f86eb194469f55348470b1068, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2419,29 +2403,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 270
       objectReference: {fileID: 0}
-    - target: {fileID: 5543734137562258294, guid: 8f746a9f86eb194469f55348470b1068, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f746a9f86eb194469f55348470b1068, type: 3}
---- !u!1 &8203924660033428493 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5162423145976201676, guid: 8f746a9f86eb194469f55348470b1068, type: 3}
-  m_PrefabInstance: {fileID: 3926767776763911617}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &8904704564530967651
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8203924660033428493}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5335b19a04b7f2439e2ddb44deab208, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &8832089587912033975 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5543734137562258294, guid: 8f746a9f86eb194469f55348470b1068, type: 3}

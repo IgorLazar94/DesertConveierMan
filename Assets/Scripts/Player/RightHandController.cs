@@ -51,7 +51,6 @@ public class RightHandController : MonoBehaviour
     private void ClearHands()
     {
         inventory.SetNewFood(foodInHand);
-        //foodInHand.gameObject.transform.DOMove(Vector3.down, 0.25f).OnComplete(() => Destroy(foodInHand.gameObject));
         Destroy(foodInHand.gameObject);
         isBusyHand = false;
     }

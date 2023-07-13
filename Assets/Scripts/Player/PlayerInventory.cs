@@ -22,6 +22,7 @@ public class PlayerInventory : MonoBehaviour
         if ((int)levelTask == (int)newFood.typeOfFood)
         {
             lastFoodToVictory--;
+            Basket.OnBuskedFilledUp.Invoke();
             playerUIPanel.SetTaskText(lastFoodToVictory);
             CheckWinCondition();
         }
