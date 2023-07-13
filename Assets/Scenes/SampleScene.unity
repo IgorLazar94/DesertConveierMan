@@ -74624,6 +74624,82 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6643947624029753195, guid: b510132c413e1694f8b3b9093e96e6ba, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6643987768336607425, guid: b510132c413e1694f8b3b9093e96e6ba, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6643993687682990207, guid: b510132c413e1694f8b3b9093e96e6ba, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6644025161663240197, guid: b510132c413e1694f8b3b9093e96e6ba, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6644232274657185193, guid: b510132c413e1694f8b3b9093e96e6ba, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6644254600225233829, guid: b510132c413e1694f8b3b9093e96e6ba, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6644295504934033097, guid: b510132c413e1694f8b3b9093e96e6ba, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6644405438359375057, guid: b510132c413e1694f8b3b9093e96e6ba, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6644467179573559913, guid: b510132c413e1694f8b3b9093e96e6ba, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6644467179573559913, guid: b510132c413e1694f8b3b9093e96e6ba, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 6644594070718590859, guid: b510132c413e1694f8b3b9093e96e6ba, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6644655046695398689, guid: b510132c413e1694f8b3b9093e96e6ba, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6644678671530513141, guid: b510132c413e1694f8b3b9093e96e6ba, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6644697764415296305, guid: b510132c413e1694f8b3b9093e96e6ba, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6644779110837517091, guid: b510132c413e1694f8b3b9093e96e6ba, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650585625503078651, guid: b510132c413e1694f8b3b9093e96e6ba, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650596121481477679, guid: b510132c413e1694f8b3b9093e96e6ba, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650596837077088817, guid: b510132c413e1694f8b3b9093e96e6ba, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6650654310846126251, guid: b510132c413e1694f8b3b9093e96e6ba, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b510132c413e1694f8b3b9093e96e6ba, type: 3}
 --- !u!114 &919132149290779999 stripped
@@ -84018,6 +84094,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: FoodCollection
       objectReference: {fileID: 0}
+    - target: {fileID: 3935985283034226003, guid: 5ad7092236b2a0a49aed78d13fb77a28, type: 3}
+      propertyPath: listOfFood.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3935985283034226003, guid: 5ad7092236b2a0a49aed78d13fb77a28, type: 3}
+      propertyPath: listOfFood.Array.data[5]
+      value: 
+      objectReference: {fileID: 4082313173346643189, guid: c383a5bb7a54ad749b067cd0f5512ed7, type: 3}
     - target: {fileID: 3935985283034226004, guid: 5ad7092236b2a0a49aed78d13fb77a28, type: 3}
       propertyPath: m_RootOrder
       value: 5
