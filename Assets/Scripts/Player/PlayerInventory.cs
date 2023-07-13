@@ -31,8 +31,7 @@ public class PlayerInventory : MonoBehaviour
     {
         if (lastFoodToVictory <= 0)
         {
-            //GameManager.OnActivateWinCondition.Invoke();
-            Debug.Log("Win");
+            GameManager.OnActivateWinCondition.Invoke();
         }
     }
 }

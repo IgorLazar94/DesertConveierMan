@@ -25,7 +25,7 @@ public class FoodCollections : MonoBehaviour
         {
             instance = this;
         }
-        else if (instance == this)
+        else if (!ReferenceEquals(instance, this))
         {
             Destroy(gameObject);
         }

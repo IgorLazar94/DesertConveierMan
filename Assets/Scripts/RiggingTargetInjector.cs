@@ -9,24 +9,16 @@ public class RiggingTargetInjector : MonoBehaviour
 
     private void Awake()
     {
-        MakeSingleton();
+        AddInjectorStaticLink();
     }
 
     [SerializeField] private Transform headTarget;
     [SerializeField] private Transform rightHandTarget;
     [SerializeField] private Transform leftHandTarget;
 
-    private void MakeSingleton()
+    private void AddInjectorStaticLink()
     {
-        if (Instance == null)
-        {
             Instance = this;
-        }
-        else if (Instance == this)
-        {
-            Destroy(gameObject);
-        }
-        DontDestroyOnLoad(gameObject);
     }
 
     public void SetRightHandTargetPos(Vector3 foodPos)

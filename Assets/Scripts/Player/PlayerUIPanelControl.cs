@@ -21,7 +21,7 @@ public class PlayerUIPanelControl : MonoBehaviour
         GameManager.OnActivateWinCondition -= DiactivatePanel;
     }
 
-    private void Start()
+    private void Awake()
     {
         ChoosePanelParameters();
         SetTaskText(countOfFoodTask);

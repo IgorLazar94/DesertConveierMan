@@ -55,20 +55,6 @@ public class UIController : MonoBehaviour, IPointerDownHandler
         }
     }
 
-    //private void Update()
-    //{
-    //    if (!isRegisteredFirstTouch && Input.touchCount > 0)
-    //    {
-    //        Touch touch = Input.GetTouch(0);
-
-    //        if (touch.phase == TouchPhase.Began)
-    //        {
-    //            isRegisteredFirstTouch = true;
-    //            DiactivateStartPanel();
-    //        }
-    //    }
-    //}
-
     public void OnPointerDown(PointerEventData eventData)
     {
         if (!isRegisteredFirstTouch)

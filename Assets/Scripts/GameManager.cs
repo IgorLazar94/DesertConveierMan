@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEditor;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,15 +15,16 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        MakeSingleton();
+        AddStaticLinkToGM();
         levelTask = GetRandomLevelTask<TypeOfFood>();
         countOfFoodTask = GetRandomCountOfFood();
     }
 
-    private TypeOfFood GetRandomLevelTask<TypeOfFood>()
+    private T GetRandomLevelTask<T>()
     {
         Array values = Enum.GetValues(typeof(TypeOfFood));
-        return (TypeOfFood)values.GetValue(UnityEngine.Random.Range(0, values.Length));
+        UnityEngine.Random.InitState(System.DateTime.Now.Millisecond);
+        return (T)values.GetValue(UnityEngine.Random.Range(0, values.Length));
     }
 
     private int GetRandomCountOfFood()
@@ -30,17 +32,9 @@ public class GameManager : MonoBehaviour
         return UnityEngine.Random.Range(1, 5);
     }
 
-    private void MakeSingleton()
+    private void AddStaticLinkToGM()
     {
-        if (Instance == null)
-        {
             Instance = this;
-        }
-        else if (Instance == this)
-        {
-            Destroy(gameObject);
-        }
-        DontDestroyOnLoad(gameObject);
     }
 
     public TypeOfFood GetLevelTask()
@@ -53,11 +47,17 @@ public class GameManager : MonoBehaviour
         return countOfFoodTask;
     }
 
-    private void Update() // Debug
+    public void RestartScene()
+    {
+        var thisScene = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(thisScene);
+    }
+
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            OnActivateWinCondition.Invoke();
+            RestartScene();
         }
     }
 }

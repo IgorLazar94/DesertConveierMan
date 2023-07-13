@@ -20,7 +20,7 @@ public class SpriteCollections : MonoBehaviour
     {
         levelTask = GameManager.Instance.GetLevelTask();
         ChooseTaskSprite();
-        MakeSingleton();
+        AddStaticLinkToSpriteCollection();
     }
 
     private void ChooseTaskSprite()
@@ -53,16 +53,8 @@ public class SpriteCollections : MonoBehaviour
         return taskSprite;
     }
 
-    private void MakeSingleton()
+    private void AddStaticLinkToSpriteCollection()
     {
-        if (Instance == null)
-        {
             Instance = this;
-        }
-        else if (Instance == this)
-        {
-            Destroy(gameObject);
-        }
-        DontDestroyOnLoad(gameObject);
     }
 }
