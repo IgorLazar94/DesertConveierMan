@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -16,11 +17,14 @@ public class Food : MonoBehaviour
     [field: SerializeField] public TypeOfFood typeOfFood { get; private set; }
     public static Action onFoodClicked;
 
+    [SerializeField] private GameObject arrowSprite;
+    private Tween spriteTween;
     private bool isTargetFood = false;
     public bool isTranslatePosition { get; private set; }
 
     private void Start()
     {
+        arrowSprite.gameObject.SetActive(false);
         isTranslatePosition = false;
     }
     private void OnEnable()
@@ -31,6 +35,17 @@ public class Food : MonoBehaviour
     private void OnDisable()
     {
         onFoodClicked -= CheckIsActualFood;
+    }
+
+    private void ActivateSprite()
+    {
+        arrowSprite.gameObject.SetActive(true);
+        arrowSprite.transform.DOMoveY(1.5f,0.25f).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.Linear);
+    }
+
+    private void DiactivateSprite()
+    {
+        arrowSprite.gameObject.SetActive(false);
     }
 
     private void OnMouseDown()
@@ -51,10 +66,12 @@ public class Food : MonoBehaviour
         if (isTargetFood)
         {
             isTranslatePosition = true;
+            ActivateSprite();
         }
         else
         {
             isTranslatePosition = false;
+            DiactivateSprite();
         }
     }
 
@@ -71,6 +88,7 @@ public class Food : MonoBehaviour
         if (isTranslatePosition)
         {
             isTranslatePosition = false;
+            DiactivateSprite();
         }
     }
 
