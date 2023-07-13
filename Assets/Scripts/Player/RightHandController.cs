@@ -13,6 +13,7 @@ public class RightHandController : MonoBehaviour
     private bool isBusyHand = false;
     private Food foodInHand;
 
+    public static Action OnBombExploded;
     private void OnEnable()
     {
         foodOffHandEvent += ClearHands;
@@ -64,5 +65,6 @@ public class RightHandController : MonoBehaviour
     private void ActivateBomb(Food food)
     {
         food.StartCoroutine(food.DetonateTheBomb());
+        OnBombExploded?.Invoke();
     }
 }
