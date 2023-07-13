@@ -53,11 +53,4 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(thisScene);
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            RestartScene();
-        }
-    }
 }

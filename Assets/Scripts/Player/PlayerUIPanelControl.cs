@@ -24,7 +24,14 @@ public class PlayerUIPanelControl : MonoBehaviour
     private void Awake()
     {
         ChoosePanelParameters();
-        SetTaskText(countOfFoodTask);
+        taskText.text = countOfFoodTask.ToString();
+
+        //SetTaskText(countOfFoodTask);
+    }
+
+    private void Start()
+    {
+        transform.DOScale((Vector3.one * 0.66f), 0.5f);
     }
 
     private void ChoosePanelParameters()
