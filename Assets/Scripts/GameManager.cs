@@ -36,15 +36,6 @@ public class GameManager : MonoBehaviour
         return randomFood;
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            levelTask = GetRandomLevelTask<TypeOfFood>();
-            Debug.Log(levelTask + "level Task");
-        }
-    }
-
     private int GetRandomCountOfFood()
     {
         return UnityEngine.Random.Range(1, 6);
