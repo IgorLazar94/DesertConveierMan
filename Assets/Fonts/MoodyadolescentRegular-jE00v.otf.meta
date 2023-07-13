@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 1be7593297acd8a43b17f0dc4b3fa3f6
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Moody Adolescent
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 4a181d16574c2ae4294d82882f3da859, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

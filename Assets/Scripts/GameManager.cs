@@ -7,22 +7,25 @@ using UnityEditor;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-    TypeOfFood levelTask;
+    private TypeOfFood levelTask;
+    private int countOfFoodTask;
 
     private void Awake()
     {
         MakeSingleton();
         levelTask = GetRandomLevelTask<TypeOfFood>();
+        countOfFoodTask = GetRandomCountOfFood();
     }
-
-
-
-
 
     private TypeOfFood GetRandomLevelTask<TypeOfFood>()
     {
         Array values = Enum.GetValues(typeof(TypeOfFood));
         return (TypeOfFood)values.GetValue(UnityEngine.Random.Range(0, values.Length));
+    }
+
+    private int GetRandomCountOfFood()
+    {
+        return UnityEngine.Random.Range(1, 5);
     }
 
     private void MakeSingleton()
@@ -40,7 +43,11 @@ public class GameManager : MonoBehaviour
 
     public TypeOfFood GetLevelTask()
     {
-        Debug.Log(levelTask + " task");
         return levelTask;
+    }
+
+    public int GetCountOfFood()
+    {
+        return countOfFoodTask;
     }
 }

@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour
 {
-    private List<Food> playersFood = new List<Food>();
+    private PlayerUIPanelControl playerUIPanel;
     private TypeOfFood levelTask;
+    private int lastFoodToVictory;
 
     private void Start()
     {
         levelTask = GameManager.Instance.GetLevelTask();
+        lastFoodToVictory = GameManager.Instance.GetCountOfFood();
+        playerUIPanel = gameObject.GetComponentInChildren<PlayerUIPanelControl>();
     }
 
 
@@ -18,7 +21,8 @@ public class PlayerInventory : MonoBehaviour
     {
         if ((int)levelTask == (int)newFood.typeOfFood)
         {
-            playersFood.Add(newFood);
+            lastFoodToVictory--;
+            playerUIPanel.SetTaskText(lastFoodToVictory);
         }
     }
 

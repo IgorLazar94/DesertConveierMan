@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpriteCollections : MonoBehaviour
 {
+    public static SpriteCollections Instance { get; private set; }
+ 
     [SerializeField] private Sprite appleSprite;
     [SerializeField] private Sprite bananaSprite;
     [SerializeField] private Sprite coconutSprite;
@@ -13,10 +16,11 @@ public class SpriteCollections : MonoBehaviour
     private TypeOfFood levelTask;
     private Sprite taskSprite;
 
-    private void Start()
+    private void Awake()
     {
         levelTask = GameManager.Instance.GetLevelTask();
         ChooseTaskSprite();
+        MakeSingleton();
     }
 
     private void ChooseTaskSprite()
@@ -42,5 +46,23 @@ public class SpriteCollections : MonoBehaviour
                 Debug.LogWarning("Undefined level task");
                 break;
         }
+    }
+
+    public Sprite GetTaskSprite()
+    {
+        return taskSprite;
+    }
+
+    private void MakeSingleton()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else if (Instance == this)
+        {
+            Destroy(gameObject);
+        }
+        DontDestroyOnLoad(gameObject);
     }
 }
