@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
 
     private int GetRandomCountOfFood()
     {
-        return UnityEngine.Random.Range(1, 5);
+        return UnityEngine.Random.Range(1, 6);
     }
 
     private void AddStaticLinkToGM()
