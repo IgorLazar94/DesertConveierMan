@@ -35,6 +35,11 @@ public class RightHandController : MonoBehaviour
 
     private void ConnectWithFood(Food food)
     {
+        if (food.typeOfFood == TypeOfFood.Bomb)
+        {
+            ActivateBomb(food);
+        }
+
         food.DiactivateTranslatePosition();
         food.gameObject.transform.localPosition = transform.localPosition - (Vector3.one * 0.01f);
         food.gameObject.transform.SetParent(transform, false);
@@ -54,5 +59,10 @@ public class RightHandController : MonoBehaviour
         inventory.SetNewFood(foodInHand);
         Destroy(foodInHand.gameObject);
         isBusyHand = false;
+    }
+
+    private void ActivateBomb(Food food)
+    {
+        food.StartCoroutine(food.DetonateTheBomb());
     }
 }

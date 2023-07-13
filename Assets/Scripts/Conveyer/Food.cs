@@ -10,8 +10,10 @@ public enum TypeOfFood
     Banana,
     Coconut,
     Pear,
-    Pineapple
+    Pineapple,
+    Bomb
 }
+
 public class Food : MonoBehaviour
 {
     [field: SerializeField] public TypeOfFood typeOfFood { get; private set; }
@@ -99,6 +101,12 @@ public class Food : MonoBehaviour
     public void PlacedInTheHand()
     {
         isInHand = true;
+    }
+
+    public IEnumerator DetonateTheBomb()
+    {
+        yield return new WaitForSeconds(0.2f);
+        Debug.Log("Boom");
     }
 
 }

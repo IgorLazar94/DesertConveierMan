@@ -21,11 +21,28 @@ public class GameManager : MonoBehaviour
         countOfFoodTask = GetRandomCountOfFood();
     }
 
-    private T GetRandomLevelTask<T>()
+    private TypeOfFood GetRandomLevelTask<TypeOfFood>() where TypeOfFood : Enum
     {
         Array values = Enum.GetValues(typeof(TypeOfFood));
         UnityEngine.Random.InitState(System.DateTime.Now.Millisecond);
-        return (T)values.GetValue(UnityEngine.Random.Range(0, values.Length));
+
+        int lastIndex = values.Length - 1;
+        TypeOfFood randomFood;
+
+        do
+        {
+            randomFood = (TypeOfFood)values.GetValue(UnityEngine.Random.Range(0, values.Length));
+        } while (randomFood.Equals(Enum.GetValues(typeof(TypeOfFood)).GetValue(lastIndex)));
+        return randomFood;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            levelTask = GetRandomLevelTask<TypeOfFood>();
+            Debug.Log(levelTask + "level Task");
+        }
     }
 
     private int GetRandomCountOfFood()
