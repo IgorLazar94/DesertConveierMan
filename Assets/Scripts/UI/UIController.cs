@@ -9,6 +9,7 @@ public class UIController : MonoBehaviour, IPointerDownHandler
     [SerializeField] private GameObject startPanel;
     [SerializeField] private GameObject gameplayPanel;
     [SerializeField] private GameObject winPanel;
+    [SerializeField] private GameObject losePanel;
 
     private bool isRegisteredFirstTouch = false;
 
@@ -19,11 +20,13 @@ public class UIController : MonoBehaviour, IPointerDownHandler
     private void OnEnable()
     {
         GameManager.OnActivateWinCondition += StartActivateWinPanel;
+        GameManager.OnActivateLoseCondition += ActivateLosePanel;
     }
 
     private void OnDisable()
     {
         GameManager.OnActivateWinCondition -= StartActivateWinPanel;
+        GameManager.OnActivateLoseCondition -= ActivateLosePanel;
     }
 
     private void DiactivateStartPanel()
@@ -36,6 +39,12 @@ public class UIController : MonoBehaviour, IPointerDownHandler
     private void StartActivateWinPanel()
     {
         StartCoroutine(ActivateWinPanel());
+    }
+    private void ActivateLosePanel()
+    {
+        gameplayPanel.SetActive(false);
+        losePanel.SetActive(true);
+        losePanel.transform.DOScale(Vector3.one, 0.5f).OnComplete(() => Time.timeScale = 0);
     }
 
     private IEnumerator ActivateWinPanel()

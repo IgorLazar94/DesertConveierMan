@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     private int countOfFoodTask;
 
     public static Action OnActivateWinCondition;
+    public static Action OnActivateLoseCondition;
 
     private void Awake()
     {

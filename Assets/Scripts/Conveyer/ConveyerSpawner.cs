@@ -10,6 +10,7 @@ public class ConveyerSpawner : MonoBehaviour
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private Transform containerPool;
     private float partsSpeed = 2f;
+    private float factorSpeed = 0.2f;
     private float conveyerWidth;
     private float conveyerHeight;
     private List<ConveyerPartController> conveyersList = new List<ConveyerPartController>();
@@ -17,11 +18,13 @@ public class ConveyerSpawner : MonoBehaviour
     private void OnEnable()
     {
         GameManager.OnActivateWinCondition += DisableConveyer;
+        CountDownTimer.onUpdateSpeedByTime += UpdateConveyerSpeed;
     }
 
     private void OnDisable()
     {
         GameManager.OnActivateWinCondition -= DisableConveyer;
+        CountDownTimer.onUpdateSpeedByTime -= UpdateConveyerSpeed;
     }
 
     private void Start()
@@ -38,11 +41,19 @@ public class ConveyerSpawner : MonoBehaviour
         {
             var prefab = ChooseTypeOfConveyerPart(counter);
             InitNewConveier(prefab);
-
             yield return new WaitForSeconds((conveyerWidth * 2) / partsSpeed);
             counter++;
         }
 
+    }
+
+    private void UpdateConveyerSpeed()
+    {
+        partsSpeed += factorSpeed;
+        foreach (var conveyer in conveyersList)
+        {
+            conveyer.SetSpeed(partsSpeed);
+        }
     }
 
     private void GetConveyerWidth()
@@ -83,8 +94,8 @@ public class ConveyerSpawner : MonoBehaviour
     {
         var fruitPrefab = FoodCollections.instance.ChooseRandomFruit();
         float fruitHeight = fruitPrefab.GetComponent<SphereCollider>().radius;
-        Vector3 spawnPoint = new Vector3(conveyerPart.transform.position.x, 
-                                         conveyerPart.transform.position.y + conveyerHeight + (fruitHeight * 2), 
+        Vector3 spawnPoint = new Vector3(conveyerPart.transform.position.x,
+                                         conveyerPart.transform.position.y + conveyerHeight + (fruitHeight * 2),
                                          conveyerPart.transform.position.z);
         var fruitObject = Instantiate(fruitPrefab, spawnPoint, Quaternion.identity);
         fruitObject.transform.parent = conveyerPart.transform;
