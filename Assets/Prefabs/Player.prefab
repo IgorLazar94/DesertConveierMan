@@ -1066,7 +1066,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Weight: 1
   m_Data:
-    m_Root: {fileID: 3740904090866461971}
+    m_Root: {fileID: 5450743922998034261}
     m_Tip: {fileID: 3120914751350081300}
     m_Target: {fileID: 1345365290}
     m_ChainRotationWeight: 0.774

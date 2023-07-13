@@ -47,6 +47,7 @@ public class AnimationRiggingController : MonoBehaviour
     private void MoveHands()
     {
         rightHandTarget.DOMove(new Vector3(-0.4f, 1, 0), 1f).OnComplete(() => PutFoodInBasket());
+        headTarget.DOMove(new Vector3(-0.4f, 1, 0), 1f);
         leftHandTarget.DOMove(leftHandTarget.position + new Vector3(0f, 0.2f, 0f), 1f);
 
     }
@@ -60,6 +61,7 @@ public class AnimationRiggingController : MonoBehaviour
     public void MoveHandsToDefault()
     {
         rightHandTarget.DOMove(rightTargetDefaultPos, 0.75f);
+        headTarget.DOMove(headDefaultPos, 0.75f);
         leftHandTarget.DOMove(leftTargetDefaultPos, 0.75f);
     }
 

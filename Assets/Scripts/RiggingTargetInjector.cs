@@ -26,6 +26,7 @@ public class RiggingTargetInjector : MonoBehaviour
         if (!rightHand.CheckISBusyHand())
         {
             rightHandTarget.position = foodPos;
+            headTarget.position = foodPos;
         }
     }
 
