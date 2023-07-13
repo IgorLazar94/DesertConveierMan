@@ -53,9 +53,14 @@ public class AnimationRiggingController : MonoBehaviour
 
     private void PutFoodInBasket()
     {
+        MoveHandsToDefault();
+        RightHandController.foodOffHandEvent.Invoke();
+    }
+
+    public void MoveHandsToDefault()
+    {
         rightHandTarget.DOMove(rightTargetDefaultPos, 0.75f);
         leftHandTarget.DOMove(leftTargetDefaultPos, 0.75f);
-        RightHandController.foodOffHandEvent.Invoke();
     }
 
     private void EnableRandomDance()
