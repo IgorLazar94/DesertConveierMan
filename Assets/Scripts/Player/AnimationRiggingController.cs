@@ -15,8 +15,8 @@ public class AnimationRiggingController : MonoBehaviour
     private Vector3 rightTargetDefaultPos;
     private Vector3 leftTargetDefaultPos;
     private Vector3 headDefaultPos;
-    private Vector3 rightHandPassPos;
-    private Vector3 leftHandPassPos;
+    //private Vector3 rightHandPassPos;
+    //private Vector3 leftHandPassPos;
 
     private void Start()
     {
@@ -62,8 +62,8 @@ public class AnimationRiggingController : MonoBehaviour
     {
         int typeOfDance = Random.Range(0, 3);
         DiactivateRiggindAnimation();
-        animator.SetInteger("typeOfDance", typeOfDance);
-        animator.SetTrigger("isDance");
+        animator.SetInteger(AnimParameters.typeOfDance, typeOfDance);
+        animator.SetTrigger(AnimParameters.isDance);
     }
 
 }
